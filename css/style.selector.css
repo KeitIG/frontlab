@@ -1,0 +1,18 @@
+.selector {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 400ms ease-in-out;
+
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+         -o-user-select: none;
+}
+
+.selectable-area {
+    height: 100vh;
+    cursor: pointer;
+}
