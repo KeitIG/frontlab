@@ -1,5 +1,6 @@
 
-    var main = document.getElementById('selectable-area');
+    var main  = document.getElementById('selectable-area');
+    var items = document.querySelectorAll('.selectable-area .selectable-item')
     var a, b, x, y;
     var dragging = false;
 
@@ -21,6 +22,19 @@
         a = e.pageX;
         b = e.pageY;
 
+
+        // Check if it is an item
+        if(e.target.classList.contains('item')) {
+
+            if(!e.ctrlKey) {
+                for(i = 0; i < items.length; i++) {
+                    items[i].classList.remove('selected');
+                }
+            }
+
+            e.target.classList.toggle('selected');
+        }
+
     }, true);
 
 
@@ -35,6 +49,22 @@
             if(!selector.alive) drawSelector();
 
             updateSelector(a, b, x, y);
+
+            for(i = 0; i < items.length; i++) {
+
+                if(    (items[i].offsetTop > Math.min(b, y)  || items[i].offsetTop + items[i].offsetHeight > Math.min(b, y) )
+                    && (items[i].offsetTop < Math.max(b, y)  || items[i].offsetTop + items[i].offsetHeight < Math.max(b, y) )
+                    && (items[i].offsetLeft > Math.min(a, x) || items[i].offsetLeft + items[i].offsetWidth > Math.min(a, x) )
+                    && (items[i].offsetLeft < Math.max(a, x) || items[i].offsetLeft + items[i].offsetWidth < Math.max(a, x) )
+                ) {
+
+                    items[i].classList.add('selected');
+
+                } else {
+
+                    items[i].classList.remove('selected');
+                }
+            }
         }
 
 
@@ -46,10 +76,9 @@
 
         dragging = false;
 
-        eraseSelector();
+        if(selector.alive) eraseSelector();
 
     }, true);
-
 
 
 

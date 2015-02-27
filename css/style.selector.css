@@ -1,18 +1,37 @@
 .selector {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 122, 255, 0.1);
+    border: 1px solid rgba(0, 122, 255, 0.2);
     position: absolute;
     cursor: pointer;
     opacity: 1;
-    transition: opacity 400ms ease-in-out;
-
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-         -o-user-select: none;
+    transition: opacity .4s ease-in-out;
 }
 
 .selectable-area {
     height: 100vh;
     cursor: pointer;
+    font-size: 0;
+}
+
+.selectable-area .selectable-item.item {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    margin: 20px;
+    font-size: initial;
+    transition: background-color .2s ease-in-out;
+}
+
+.selectable-area .selectable-item.item.selected {
+    background: rgba(0, 122, 255, 0.5);
+}
+
+.selectable-area,
+.selectable-area *,
+.selector {
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+         -o-user-select: none;
+            user-select: none;
 }

@@ -1,7 +1,9 @@
 # frontlab
-Front-end experiments.
+Front-end experiments in Vanilla Javascript.
 
-Everything is in Vanilla Javascript.
+===
 
 #### Selector
 Selector is a simple demo to select items in a page.
+    * Click and drag your mouse to select items
+    * Use ctrl/⌘ + click to select/unselect an item
