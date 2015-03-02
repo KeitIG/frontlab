@@ -1,9 +1,9 @@
+"strict mode";
 
-    "strict mode";
 
     var main  = document.getElementById('selectable-area');
-    var items = document.querySelectorAll('.selectable-area .selectable-item')
-    var a, b, x, y;
+    var items = document.querySelectorAll('.selectable-area .selectable-item');
+    var a, b, x, y, i;
     var dragging = false;
 
     var selector = document.createElement('div');
@@ -80,7 +80,7 @@
 
 
     // mouseup
-    document.addEventListener('mouseup', function(e) {
+    document.addEventListener('mouseup', function() {
 
         dragging = false;
 
