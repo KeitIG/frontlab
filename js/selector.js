@@ -1,4 +1,6 @@
 
+    "strict mode";
+
     var main  = document.getElementById('selectable-area');
     var items = document.querySelectorAll('.selectable-area .selectable-item')
     var a, b, x, y;
@@ -33,6 +35,12 @@
             }
 
             e.target.classList.toggle('selected');
+
+        } else {
+
+            for(i = 0; i < items.length; i++) {
+                items[i].classList.remove('selected');
+            }
         }
 
     }, true);
@@ -52,10 +60,10 @@
 
             for(i = 0; i < items.length; i++) {
 
-                if(    (items[i].offsetTop > Math.min(b, y)  || items[i].offsetTop + items[i].offsetHeight > Math.min(b, y) )
-                    && (items[i].offsetTop < Math.max(b, y)  || items[i].offsetTop + items[i].offsetHeight < Math.max(b, y) )
-                    && (items[i].offsetLeft > Math.min(a, x) || items[i].offsetLeft + items[i].offsetWidth > Math.min(a, x) )
-                    && (items[i].offsetLeft < Math.max(a, x) || items[i].offsetLeft + items[i].offsetWidth < Math.max(a, x) )
+                if((items[i].offsetTop > Math.min(b, y)  || items[i].offsetTop + items[i].offsetHeight > Math.min(b, y))
+                    && (items[i].offsetTop < Math.max(b, y)  || items[i].offsetTop + items[i].offsetHeight < Math.max(b, y))
+                    && (items[i].offsetLeft > Math.min(a, x) || items[i].offsetLeft + items[i].offsetWidth > Math.min(a, x))
+                    && (items[i].offsetLeft < Math.max(a, x) || items[i].offsetLeft + items[i].offsetWidth < Math.max(a, x))
                 ) {
 
                     items[i].classList.add('selected');
